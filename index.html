@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZmluvyPZP: Finančné poradenstvo na mieru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-page-bg: #f3f4f6;      /* veľmi svetlá šedá */
+      --color-header-bg: #f9fafb;
+      --color-hero-from: #f9fafb;
+      --color-hero-to: #e5e7eb;
+      --color-primary: #f97316;      /* oranžová */
+      --color-primary-soft: #ffedd5;
+      --color-text-main: #111827;
+      --color-text-muted: #6b7280;
+      --color-border-soft: #e5e7eb;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--color-text-main);
+      background: var(--color-page-bg);
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+
+    header {
+      background: var(--color-header-bg);
+      color: var(--color-text-main);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(249, 115, 22, 0.08);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    }
+
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      gap: 1.25rem;
+    }
+
+    .logo {
+      font-family: "Segoe Print", "Comic Sans MS", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", cursive;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.03em;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .contact-icon {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 22px;
+    }
+
+    .contact-icon img {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .contact-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+    }
+
+    .contact-text a {
+      color: var(--color-text-main);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-text a:hover {
+      color: var(--color-primary);
+    }
+
+    .header-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-image img {
+      height: 56px;
+      width: auto;
+      display: block;
+    }
+
+    /* Hero */
+
+    .hero {
+      background:
+        linear-gradient(
+          120deg,
+          rgba(243, 244, 246, 0.96) 0%,
+          rgba(243, 244, 246, 0.94) 46%,
+          rgba(255, 247, 237, 0.15) 100%
+        ),
+        url('banner.png') center/cover no-repeat;
+      padding: 80px 0 72px;
+      color: var(--color-text-main);
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(249, 115, 22, 0.08);
+      color: var(--color-primary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 520px;
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+    }
+
+    /* Služby */
+
+    .services {
+      padding: 72px 0 80px;
+      background: #ffffff;
+    }
+
+    .services h2 {
+      text-align: center;
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 2.4rem;
+      color: var(--color-text-main);
+      margin-bottom: 2.6rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-top: 4px solid var(--color-primary-soft);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      border-top-color: var(--color-primary);
+    }
+
+    .card-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1.3rem;
+      object-fit: cover;
+      max-height: 220px;
+    }
+
+    .card h3 {
+      color: var(--color-text-main);
+      margin-bottom: 0.7rem;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--color-text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* Privacy / GDPR */
+
+    .privacy {
+      padding: 56px 0 64px;
+      background: var(--color-page-bg);
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    .privacy-heading {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--color-text-main);
+      margin-bottom: 0.9rem;
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .privacy-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      color: var(--color-text-muted);
+      font-size: 0.98rem;
+    }
+
+    .privacy-box {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.03);
+    }
+
+    .privacy-box summary {
+      padding: 18px 24px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--color-text-main);
+      cursor: pointer;
+      background: #fefdf8;
+      list-style: none;
+      text-align: center;
+    }
+
+    .privacy-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .privacy-box[open] summary {
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    .privacy-content {
+      padding: 24px 24px 26px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-text-main);
+    }
+
+    .privacy-content h3 {
+      margin-top: 0;
+      margin-bottom: 0.35rem;
+      color: var(--color-text-main);
+      font-size: 1.05rem;
+    }
+
+    .privacy-content p {
+      margin-bottom: 1rem;
+      color: var(--color-text-muted);
+    }
+
+    .privacy-content a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .privacy-content a:hover {
+      text-decoration: underline;
+    }
+
+    .privacy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .privacy-table th,
+    .privacy-table td {
+      padding: 10px;
+      border: 1px solid var(--color-border-soft);
+      text-align: left;
+    }
+
+    .privacy-table tr:first-child {
+      background: #f9fafb;
+    }
+
+    /* Footer */
+
+    footer {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 26px 0 30px;
+      font-size: 0.9rem;
+    }
+
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem 1.5rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #e5e7eb;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(249, 250, 251, 0.35);
+    }
+
+    footer a:hover {
+      color: var(--color-primary-soft);
+      border-bottom-color: transparent;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero {
+        padding: 64px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header {
+        position: static;
+      }
+
+      .contact-info {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar {
+        align-items: center;
+        text-align: center;
+      }
+
+      .contact-info {
+        justify-content: center;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container top-bar">
+      <div class="logo">ZmluvyPZP</div>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">
+            <img src="icon-phone.svg" alt="">
+          </span>
+          <div class="contact-text">
+            <span class="contact-label">Mobil</span>
+            <a href="tel:+421919025431">+421 911 808 001</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">
+            <img src="icon-mail.svg" alt="">
+          </span>
+          <div class="contact-text">
+            <span class="contact-label">E-mail</span>
+            <a href="mailto:zmluvypzp@gmail.com">zmluvypzp@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="header-image">
+          <img src="partner.png" alt="Partnerská spoločnosť">
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-kicker">Finančné poradenstvo • Investície • Poistenie</div>
+        <h1>Poistenie a finančné poradenstvo na mieru</h1>
+        <p>Individuálne stratégie, ktoré vám pomôžu dosiahnuť finančnú slobodu, bezpečnosť a pokoj v každej životnej fáze.</p>
+      </div>
+    </div>
+  </section>
+
+ <section class="services">
+  <div class="container">
+    <h2>Naše finančné služby</h2>
+    
+    <div class="grid">
+      <div class="card">
+        <img
+          src="card1.jpg"
+          alt="Finančné poradenstvo"
+          class="card-image"
+        >
+        <h3>Komplexné finančné poradenstvo</h3>
+        <p>Spolupráca prebieha formou viacerých osobných stretnutí. Spoločne si prejdeme celý váš finančný obraz – od existujúcich zmlúv až po ciele do budúcnosti. Zároveň skontrolujeme, čo už máte nastavené, navrhneme potrebné úpravy a doplníme to, čo chýba.</p>
+      </div>
+
+      <div class="card">
+        <img
+          src="card2.jpg"
+          alt="Investičné portfólio"
+          class="card-image"
+        >
+        <h3>Investovanie šité na mieru</h3>
+        <p>Pomáhame vám budovať a zároveň chrániť váš majetok. Pre každého klienta skladáme portfólio presne podľa jeho životnej situácie, časového horizontu a ochoty riskovať. Spájame dlhodobé finančné plánovanie s praktickou správou investícií.</p>
+      </div>
+
+      <div class="card">
+        <img
+          src="card3.jpg"
+          alt="Dôchodkové plánovanie"
+          class="card-image"
+        >
+        <h3>Dôchodok bez starostí</h3>
+        <p>Chceme, aby ste si na staré dni mohli dovoliť život, ktorý vás bude baviť. Spoločne navrhneme stratégiu, ktorá vám v dôchodkovom veku zabezpečí dostatočný príjem a pokoj, že na nič dôležité nezabudnete.</p>
+      </div>
+
+      <div class="card">
+        <img
+          src="card4.jpg"
+          alt="Úvery a hypotéky"
+          class="card-image"
+        >
+        <h3>Úvery a financovanie</h3>
+        <p>Pomôžeme vám vybrať najvýhodnejšie riešenie financovania bývania, auta či iných potrieb. Porovnáme ponuky viacerých bánk, spočítame reálne celkové náklady (vrátane skrytých poplatkov) a nájdeme variant, ktorý dáva najväčší zmysel práve pre vás.</p>
+      </div>
+
+      <div class="card">
+        <img
+          src="card5.jpg"
+          alt="Životné poistenie"
+          class="card-image"
+        >
+        <h3>Životné poistenie</h3>
+        <p>Považujeme ho za úplný základ finančnej istoty. Pri nastavovaní sa zameriavame hlavne na krytie najvážnejších rizík (závažné ochorenia, invalidita, smrť), ktoré by zásadne zmenili životnú situáciu vás alebo vašej rodiny. Je to ochrana budúcnosti, nie len ďalšia položka v zozname výdavkov.</p>
+      </div>
+
+      <div class="card">
+        <img
+          src="card6.jpg"
+          alt="Neživotné poistenie"
+          class="card-image"
+        >
+        <h3>Poistenie majetku a zodpovednosti</h3>
+        <p>Zabezpečíme vám komplexnú ochranu všetkého, čo vlastníte – dom, byt, auto, chatu, firmu… Vyberieme poistky, ktoré reálne zodpovedajú vašim rizikám a životnému štýlu. Naším cieľom je, aby ste v prípade škody nemuseli riešiť, či a ako to prežijete finančne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="privacy">
+  <div class="container">
+    <h2 class="privacy-heading">
+      Ochrana osobných údajov
+    </h2>
+
+    <p class="privacy-intro">
+      Spracúvame vaše osobné údaje v súlade s GDPR. Podrobné informácie nájdete nižšie.
+    </p>
+
+    <details class="privacy-box">
+      <summary>
+        Zobraziť úplné Zásady ochrany osobných údajov
+      </summary>
+
+      <div class="privacy-content">
+        <h3>Prevádzkovateľ</h3>
+        <p>
+          <strong>Názov:</strong> BOMAR2 s.r.o.<br>
+          <strong>Sídlo:</strong> Budatínska 3230/16A 851 06 Bratislava - mestská časť Petržalka<br>
+          <strong>Web:</strong> <a href="https://zmluvypzp.sk">https://zmluvypzp.sk</a><br>
+          <strong>E-mail:</strong> <a href="mailto:zmluvypzp@gmail.com">zmluvypzp@gmail.com</a>
+        </p>
+
+        <h3>Kontaktná osoba</h3>
+        <p>
+          <strong>Tomáš Božik</strong><br>
+          <a href="mailto:zmluvypzp@gmail.com">zmluvypzp@gmail.com</a><br>
+          Poverenca pre ochranu osobných údajov nemáme určeného.
+        </p>
+
+        <h3>Aké údaje spracúvame a prečo</h3>
+
+        <p>
+          <strong>1) Newsletter a kampane (Ecomail)</strong><br>
+          <u>Spracovateľ:</u> Ecomail – zasielanie e-mailov, štatistiky otvorení a preklikov.<br>
+          <u>Údaje:</u> e-mail (príp. meno), preferencie, technické štatistiky.<br>
+          <u>Účel:</u> zasielanie noviniek a obchodných informácií, meranie výkonu kampaní.<br>
+          <u>Právny základ:</u> súhlas (double opt-in) alebo oprávnený záujem pri existujúcom zákazníckom vzťahu, ak to umožňuje zákon.<br>
+          <u>Odhlásenie:</u> kedykoľvek cez odkaz v každom e-maile alebo na <a href="mailto:zmluvypzp@gmail.com">zmluvypzp@gmail.com</a>.<br>
+          <u>Uchovávanie:</u> po dobu trvania súhlasu/do odhlásenia; najneskôr 3 roky od poslednej interakcie.
+
+        </p>
+
+        <!-- <p>
+          <strong>2) Analytika (Google Analytics 4)</strong><br>
+          Údaje: cookie/ID zariadenia, skrátená IP, udalosti o používaní webu.<br>
+          Účel: meranie návštevnosti a vylepšovanie webu.<br>
+          Právny základ: súhlas (cez cookie lištu).<br>
+          Uchovávanie: podľa nastavenia GA4 (odporúčanie 14 mesiacov).
+        </p> -->
+
+        <h3>Súbory cookies</h3>
+        <p>
+          Používame nevyhnutné cookies pre fungovanie webu a – po súhlase – analytické a marketingové cookies.
+          Nastavenia môžete kedykoľvek zmeniť v cookie lište.
+        </p>
+
+        <table class="privacy-table">
+          <tr>
+            <th>Kategória</th>
+            <th>Účel</th>
+            <th>Právny základ</th>
+            <th>Typická doba</th>
+          </tr>
+          <!-- <tr>
+            <td>Analytické (GA4)</td>
+            <td>Meranie návštevnosti</td>
+            <td>Súhlas</td>
+            <td>Podľa GA4 (napr. 14 mesiacov)</td>
+          </tr> -->
+          <tr>
+            <td>Marketingové (Ecomail – voliteľné)</td>
+            <td>Meranie výkonu kampaní, prepojenie web ↔ e-mail.</td>
+            <td>Súhlas</td>
+            <td>Podľa nastavení kampane</td>
+          </tr>
+        </table>
+        <br>
+
+        <h3>Príjemcovia a spracovatelia</h3>
+        <p>
+          <u>Hosting/IT:</u> náš zmluvný poskytovateľ hostingu a správy webu.<br>
+          <u>E-mail marketing:</u> Ecomail (odosielanie newsletterov, štatistiky).<br><br>
+          <!-- Analytika: Google (Google Analytics 4).<br> -->
+          So spracovateľmi máme uzavreté zmluvy o spracúvaní osobných údajov.
+        </p>
+
+        <!-- <h3>Prenosy do tretích krajín</h3>
+        <p>
+          Niektoré služby (najmä Google) môžu prenášať údaje do USA. Prenosy prebiehajú v súlade s GDPR
+          (napr. na základe štandardných zmluvných doložiek a/alebo zapojenia do EU–US Data Privacy Framework).
+          Analytické a marketingové nástroje používame len na základe vášho súhlasu.
+        </p> -->
+
+        <h3>Ako dlho údaje uchovávame</h3>
+        <p>
+          <u>Newsletter (Ecomail):</u> do odvolania súhlasu/odhlásenia alebo do uplynutia retencie vyššie.
+        </p>
+
+        <h3>Vaše práva</h3>
+        <p>
+          Máte právo na prístup, opravu, vymazanie, obmedzenie spracúvania, prenosnosť, namietať proti
+          spracúvaniu (vrátane namietania proti priamemu marketingu) a podať sťažnosť na Úrad na ochranu
+          osobných údajov SR. Žiadosť pošlite na <a href="zmluvypzp@gmail.com">zmluvypzp@gmail.com</a>.
+          Odpovieme najneskôr do 1 mesiaca.
+        </p>
+
+        <h3>Kontakt</h3>
+        <p>
+          Pre otázky ohľadom ochrany osobných údajov nás kontaktujte na
+          <a href="mailto:zmluvypzp@gmail.com">zmluvypzp@gmail.com</a>.
+        </p>
+      </div>
+    </details>
+  </div>
+</section>
+
+  <footer>
+    <div class="container">
+      <p><strong>BOMAR2 s.r.o.</strong></p>
+      <p>je zapísaná v NBS pod reg. číslom 290261</p>
+      <p>+421 911 808 001 • <a href="mailto:zmluvypzp@gmail.com">zmluvypzp@gmail.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
